@@ -10,9 +10,23 @@ os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = credentials
 logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
 
 def connect_to_bucket(bucket_name="my-first-bucket_test"):
+    """Realize the connection with gcs bucket
+
+    Args:
+        bucket_name (str, optional): The disered bucket name. Defaults to "my-first-bucket_test".
+
+    Returns:
+        _type_: The storage.Client object to be used to make the upload. 
+    """
     return storage.Client().bucket(bucket_name)
 
 def upload_file_to_bucket(bucket_name="my-first-bucket_test", upload_file_name="README.pdf"):
+    """Realize the upload file to gcs bucket
+
+    Args:
+        bucket_name (str, optional): The disered bucket name. Defaults to "my-first-bucket_test".
+        upload_file_name (str, optional): The disered file to be uploeaded. Defaults to "README.pdf".
+    """
     try:
         bucket = connect_to_bucket(bucket_name)
         blob = bucket.blob(upload_file_name)
