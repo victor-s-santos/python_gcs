@@ -9,7 +9,7 @@ os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = credentials
 
 logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
 
-def connect_to_bucket(bucket_name="my-first-bucket_test"):
+def connect_to_bucket(bucket_name: str="my-first-bucket_test"):
     """Realize the connection with gcs bucket
 
     Args:
@@ -20,7 +20,7 @@ def connect_to_bucket(bucket_name="my-first-bucket_test"):
     """
     return storage.Client().bucket(bucket_name)
 
-def upload_file_to_bucket(bucket_name="my-first-bucket_test", upload_file_name="README.pdf"):
+def upload_file_to_bucket(bucket_name: str="my-first-bucket_test", upload_file_name: str="README.pdf"):
     """Realize the upload file to gcs bucket
 
     Args:
